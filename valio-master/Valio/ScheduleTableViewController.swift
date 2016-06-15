@@ -12,17 +12,8 @@ class ScheduleTableViewController: UITableViewController {
 
 	lazy var 📅: NSArray = {
 		let path = NSBundle.mainBundle().pathForResource("valio", ofType: "json")!
-        var result : NSArray = NSArray()
-        
-        do {
-            let data = try NSData(contentsOfFile: path, options: NSDataReadingOptions(rawValue:0))
-            try result = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue:0)) as! NSArray
-        } catch _ {
-            
-        }
-        
-        return result
-
+		let data = NSData(contentsOfFile: path, options: nil, error: nil)!
+		return NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSArray
 	}()
 	
     override func viewDidLoad() {

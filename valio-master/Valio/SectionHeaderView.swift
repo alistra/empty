@@ -14,7 +14,7 @@ class SectionHeaderView: UIView {
 
 	lazy var titleLabel: UILabel = {
 		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
+		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.font = UIFont(name: "Avenir", size: 18)
 		label.textColor = UIColor(red: 0.514, green: 0.525, blue: 0.541, alpha: 1)
 		return label
@@ -22,7 +22,7 @@ class SectionHeaderView: UIView {
 	
 	lazy var lineView: UIView = {
 		let view = UIView()
-		view.translatesAutoresizingMaskIntoConstraints = false
+		view.setTranslatesAutoresizingMaskIntoConstraints(false)
 		view.backgroundColor = UIColor(red: 0.906, green: 0.914, blue: 0.918, alpha: 1)
 		return view
 	}()
@@ -50,12 +50,12 @@ class SectionHeaderView: UIView {
 			"verticalMargin": 8
 		]
 		
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-[titleLabel]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(verticalMargin)-[titleLabel]-(verticalMargin)-[lineView(1)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[lineView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-[titleLabel]|", options: nil, metrics: nil, views: views))
+		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(verticalMargin)-[titleLabel]-(verticalMargin)-[lineView(1)]|", options: nil, metrics: metrics, views: views))
+		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[lineView]|", options: nil, metrics: metrics, views: views))
     }
 
-	required init?(coder aDecoder: NSCoder) {
+	required init(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
 }

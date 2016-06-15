@@ -15,14 +15,14 @@ class ItemTableViewCell: UITableViewCell {
 
 	lazy var titleLabel: UILabel = {
 		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
+		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.font = UIFont(name: "Avenir", size: 12)
 		return label
 	}()
 	
 	lazy var timeLabel: UILabel = {
 		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
+		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.font = UIFont(name: "Avenir-Light", size: 12)
 		label.textColor = UIColor(red: 0.631, green: 0.651, blue: 0.678, alpha: 1)
 		label.textAlignment = .Right
@@ -31,14 +31,14 @@ class ItemTableViewCell: UITableViewCell {
 	
 	lazy var lineView: UIView = {
 		let view = UIView()
-		view.translatesAutoresizingMaskIntoConstraints = false
+		view.setTranslatesAutoresizingMaskIntoConstraints(false)
 		view.backgroundColor = UIColor(red: 0.906, green: 0.914, blue: 0.918, alpha: 1)
 		return view
 	}()
 	
 	lazy var circleView: UIView = {
 		let view = UIView()
-		view.translatesAutoresizingMaskIntoConstraints = false
+		view.setTranslatesAutoresizingMaskIntoConstraints(false)
 		view.backgroundColor = UIColor.whiteColor()
 		view.layer.borderWidth = 1
 		view.layer.cornerRadius = 7
@@ -78,9 +78,9 @@ class ItemTableViewCell: UITableViewCell {
 			"lineMargin": 14
 		]
 		
-		contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(leftMargin)-[timeLabel(80)]-(lineMargin)-[lineView(2)]-(lineMargin)-[titleLabel]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-		contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[titleLabel]-(margin)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-		contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[lineView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+		contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(leftMargin)-[timeLabel(80)]-(lineMargin)-[lineView(2)]-(lineMargin)-[titleLabel]-|", options: nil, metrics: metrics, views: views))
+		contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[titleLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
+		contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[lineView]|", options: nil, metrics: metrics, views: views))
 		contentView.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .CenterY, relatedBy: .Equal, toItem: timeLabel, attribute: .CenterY, multiplier: 1, constant: 0))
 		contentView.addConstraint(NSLayoutConstraint(item: circleView, attribute: .CenterX, relatedBy: .Equal, toItem: lineView, attribute: .CenterX, multiplier: 1, constant: 0))
 		contentView.addConstraint(NSLayoutConstraint(item: circleView, attribute: .CenterY, relatedBy: .Equal, toItem: titleLabel, attribute: .CenterY, multiplier: 1, constant: 0))
@@ -88,7 +88,7 @@ class ItemTableViewCell: UITableViewCell {
 		contentView.addConstraint(NSLayoutConstraint(item: circleView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 14))
     }
 
-	required init?(coder aDecoder: NSCoder) {
+	required init(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
 }
